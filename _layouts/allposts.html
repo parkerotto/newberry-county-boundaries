@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+    Forty by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html>
+ 
+  {% include head.html %}
+ 
+  <body>
+ 
+    {% include header.html %}
+   
+   
+    <!-- Main -->
+    <div id="main" class="alt">
+ 
+      <!-- One -->
+      <section id="one">
+        <div class="inner">
+          <header class="major">
+            <h1>Blog</h1>
+          </header>
+          <p>As part of the Roaring 20s Project, our research assistants are each assigned one Community Area of Chicago to recreate pre-urban renewal (ca. 1920s).  Once these maps are completed, they are asked to share what they've learned about their neighborhoods' history through a blog post.  Often, this will be the result of comparing and contrasting contemporary zoning, transit, business, and housing maps with the extracted Sanborn fire insurance map data to paint a picture of neighborhood change over the past 100 years.  You can find all of their posts, once completed, here!
+          </p>
+      </section>
+     
+      <!-- Two -->
+      <section id="two" class="spotlights">
+        {% for blogpost in site.pages %}
+    {% if blogpost.show_blogpost == true %}
+        <section>
+                    <a href="generic.html" class="image">
+            {% if blogpost.image %}<img src="{{ site.baseurl }}/{{ blogpost.image }}" alt="" data-position="center center" />{% endif %}
+          </a>
+          <div class="content">
+            <div class="inner">
+              <header class="major">
+                <h3>{{blogpost.title}}</h3>
+              </header>
+              <p>{{blogpost.excerpt}}</p>
+              <ul class="actions">
+                <li><a href="{{ blogpost.url }}" class="button">Learn more</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        {% endif %}
+          {% endfor %}
+      </section>
+ 
+    {% include footer.html %}
+ 
+  </body>
+ 
+</html>
