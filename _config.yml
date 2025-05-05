@@ -1,17 +1,17 @@
 # site settings
-title: Roaring 20s Chicago
-subtitle: by Chicago Studies
-email: youremailaddress@gmail.com
-description: A Chicago Studies Project
+title: Atlas of Historical County Boundaries
+subtitle: by The Newberry Library
+email: dis@newberry.org
+description: Dr. William M. Scholl Center for American History and Culture
 baseurl: # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
-street_address: 1155 E 60th St
+street_address: 60 W Walton St
 city: Chicago
 state: IL
-zip_code: 60637
+zip_code: 60610
 country: United States of America
-phone: (716) 555-5555
+phone: (312) 943-9090
 page_excerpts: true
 
 # homepage tiles
@@ -24,12 +24,12 @@ tiles-count: 6
 # You need to restart jekyll for changes to have an effect
 socials:
   GitHub: https://github.com/parkerotto
-  House: https://chicagostudies.uchicago.edu/
+  House: https://www.newberry.org/
   Google-Plus:
-  Instagram:
-  LinkedIn: 
-  Twitter: 
-  Facebook:
+  Instagram: https://www.instagram.com/newberrylibrary/
+  LinkedIn: https://www.linkedin.com/company/newberry-library
+  Twitter: https://x.com/newberrylibrary
+  Facebook: https://www.facebook.com/NewberryLibrary/
   Slack:
 
 # build settings

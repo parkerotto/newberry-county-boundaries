@@ -1,7 +1,7 @@
 ---
 title: The Maps
 layout: allmaps
-description: 'Explore our neighborhood maps'
+description: 'Explore our state maps'
 image: assets/images/hydepark.jpg
 nav-menu: true
 show_tile: true
