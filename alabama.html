@@ -20,14 +20,14 @@ is_map: true
 <h3>Location Information</h3>
         <div id="location-data" class="location-metadata">
             <p>
-                Here you will find information on what Hyde Park looked like in the 1920s.  <br><br>Click on a building to explore the data! <br><br>NOTE: The "Classified Footprints" (found under Building Usage/Zone) MUST be toggled off for filters to work.
+                Here you will find information on the historical county boundaries of Alabama.  <br><br>Use the time slider to see how the county boundaries have changed over time.  <br><br><i>Use the arrow keys, play button, or next/previous buttons to navigate.</i>  <br><br>Click on a county to explore the data! 
             </p>
         </div>
     </div>	
 </section>
 
   <head>
-    <title>2020 Election Polls</title>
+    <title>Atlas of Historical County Boundaries: Alabama</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
@@ -70,6 +70,51 @@ is_map: true
       });
       var timeline;
       var timelineControl;
+      var prevLayerClicked = null;
+      var onEachFeature = function (feature, layer) {
+                if (feature.properties) {
+                    var prop = feature.properties;
+                    var popup =
+                        '<h4>County Information</h4>' +
+                        '<b>County/Region: </b><br>' + prop['NAME'] + ', ' + prop['STATE'] + '<br>' +
+                        '<br><b>Effective Dates: </b><br>' + prop['START_DATE'] + ' to ' + prop['END_DATE'] + '<br>' +
+                        '<br><b>Description of Border Change: </b><br>' + prop['CHANGE'];
+//Specific place for On Click functionality
+
+                    feature.layer = layer;
+                    
+                layer.on('click', function (){
+                  document.getElementById('location-data').innerHTML = `${popup}`
+                });
+
+                layer.on({
+                  click: function(e){
+                    if (prevLayerClicked !== null) {
+                      prevLayerClicked.setStyle({
+                        weight: 1,
+                        opacity: 1,
+                        color: 'black',
+                        dashArray: '',
+                        fillOpacity: 1.9,
+                        fillColor: 'white'
+                      });
+                    }
+                    //map.fitBounds(e.target.getBounds());
+                    var layer = e.target;
+                    layer.setStyle({
+                      weight: 1,
+                      color: '#fff',
+                      dashArray: '',
+                      fillOpacity: 1,
+                      fillColor: 'red'
+                    });
+                    if (!L.Browser.ie && !L.Browser.opera && L.Browser.edge) {
+                      layer.bringToFront();
+                    }
+                    prevLayerClicked = layer;
+                  }
+                });
+    }};
 
       function onLoadData(data) {
         timeline = L.timeline(data, {
@@ -77,17 +122,15 @@ is_map: true
           style: function (data) {
             return {
               stroke: true,
-              weight: 0.5,
-              color: '#000000',
-              fillColor: '#FFFFFF',
+              weight: 1,
+              color: 'black',
+              fillColor: 'white',
               fillOpacity: 1,
             };
           },
           waitToUpdateMap: true,
           showTicks: true,
-          onEachFeature: function (feature, layer) {
-            layer.bindTooltip('<h3>'+ feature.properties.NAME + '</h3> <p>' + ' <br>Biden: <strong>' + feature.properties.DEM + '</strong> <br>Trump: <strong>' + feature.properties.REP + '</strong></p>');
-          },
+          onEachFeature: onEachFeature
         });
 
         timelineControl = L.timelineSliderControl({
