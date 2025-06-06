@@ -1,0 +1,149 @@
+---
+title: Alaska
+layout: maps
+description: 'Historic County Boundaries of Alaska'
+image: assets/images/ak_flag.png
+nav-menu: false
+show_tile: false
+is_map: true
+---
+
+<!DOCTYPE html>
+<html>
+    <section id="one" class="section-map">
+    
+    <div id="map"></div>
+    <div id="sidebar">
+        <h2>Alaska</h2>
+        
+<br>
+<h3>Location Information</h3>
+        <div id="location-data" class="location-metadata">
+            <p>
+                Here you will find information on the historical county boundaries of Alaska.  <br><br>Use the time slider to see how the county boundaries have changed over time.  <br><br><i>Use the arrow keys, play button, or next/previous buttons to navigate.</i>  <br><br>Click on a county to explore the data! 
+            </p>
+        </div>
+    </div>	
+</section>
+
+  <head>
+    <title>Atlas of Historical County Boundaries: Alaska</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<script src="https://skeate.dev/Leaflet.timeline/examples/leaflet.timeline.js"></script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        width: 100vw;
+        height: 90vh;
+      }
+      .leaflet-bottom.leaflet-left {
+        width: 100%;
+      }
+      .leaflet-control-container .leaflet-timeline-controls {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+
+      var background = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 16
+}); 
+      var map = L.map("map", {
+        layers: [background],
+        center: new L.LatLng(64.2008, -149.4937),
+        zoom: 4,
+      });
+      var timeline;
+      var timelineControl;
+      var prevLayerClicked = null;
+      var onEachFeature = function (feature, layer) {
+                if (feature.properties) {
+                    var prop = feature.properties;
+                    var popup =
+                        '<h4>County Information</h4>' +
+                        '<b>County/Region: </b><br>' + prop['NAME'] + ', ' + prop['STATE'] + '<br>' +
+                        '<br><b>Effective Dates: </b><br>' + prop['START_DATE'] + ' to ' + prop['END_DATE'] + '<br>' +
+                        '<br><b>Description of Border Change: </b><br>' + prop['CHANGE'];
+//Specific place for On Click functionality
+
+                    feature.layer = layer;
+                    
+                layer.on('click', function (){
+                  document.getElementById('location-data').innerHTML = `${popup}`
+                });
+
+                layer.on({
+                  click: function(e){
+                    if (prevLayerClicked !== null) {
+                      prevLayerClicked.setStyle({
+                        weight: 1,
+                        opacity: 1,
+                        color: 'black',
+                        dashArray: '',
+                        fillOpacity: 1.9,
+                        fillColor: 'white'
+                      });
+                    }
+                    //map.fitBounds(e.target.getBounds());
+                    var layer = e.target;
+                    layer.setStyle({
+                      weight: 1,
+                      color: '#fff',
+                      dashArray: '',
+                      fillOpacity: 1,
+                      fillColor: 'red'
+                    });
+                    if (!L.Browser.ie && !L.Browser.opera && L.Browser.edge) {
+                      layer.bringToFront();
+                    }
+                    prevLayerClicked = layer;
+                  }
+                });
+    }};
+
+      function onLoadData(data) {
+        timeline = L.timeline(data, {
+        
+          style: function (data) {
+            return {
+              stroke: true,
+              weight: 1,
+              color: 'black',
+              fillColor: 'white',
+              fillOpacity: 1,
+            };
+          },
+          waitToUpdateMap: true,
+          showTicks: true,
+          onEachFeature: onEachFeature
+        });
+
+        timelineControl = L.timelineSliderControl({
+          formatOutput: function(date) {
+            return new Date(date).toLocaleDateString();
+          },
+          enableKeyboardControls: true,
+        });
+        timeline.addTo(map);
+        timelineControl.addTo(map);
+        timelineControl.addTimelines(timeline);
+      }
+    </script>
+    <script src="jsons/AK_AtlasHCB_reduced.jsonp"></script>
+  </body>
+</html>

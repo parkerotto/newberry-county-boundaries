@@ -2,7 +2,7 @@
 title: The Maps
 layout: allmaps
 description: 'Explore our state maps'
-image: assets/images/hydepark.jpg
+image: assets/images/usa.png
 nav-menu: true
 show_tile: true
 ---

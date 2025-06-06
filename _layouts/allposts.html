@@ -6,8 +6,17 @@
   -->
 <html>
  
-  {% include head.html %}
- 
+  <head>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!--[if lte IE 8]><script src="{{ "assets/js/ie/html5shiv.js" | relative_url }}"></script><![endif]-->
+    <link rel="stylesheet" href="{{ "assets/css/main.css" | relative_url }}" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="{{ "assets/css/ie9.css" | relative_url }}" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{ "assets/css/ie8.css" | relative_url }}" /><![endif]-->
+      <link rel="stylesheet" href="{{ "assets/css/buttons.css" | relative_url }}" />
+  </head>
+
   <body>
  
     {% include header.html %}
@@ -20,9 +29,9 @@
       <section id="one">
         <div class="inner">
           <header class="major">
-            <h1>Blog</h1>
+            <h1>Additional Information</h1>
           </header>
-          <p>As part of the Roaring 20s Project, our research assistants are each assigned one Community Area of Chicago to recreate pre-urban renewal (ca. 1920s).  Once these maps are completed, they are asked to share what they've learned about their neighborhoods' history through a blog post.  Often, this will be the result of comparing and contrasting contemporary zoning, transit, business, and housing maps with the extracted Sanborn fire insurance map data to paint a picture of neighborhood change over the past 100 years.  You can find all of their posts, once completed, here!
+          <p>Here you can learn more about the Newberry Library's Atlas of Historical County Boundaries.  You will find out FAQ, instructions for interactive map usage, and more.
           </p>
       </section>
      

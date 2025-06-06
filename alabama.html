@@ -2,7 +2,7 @@
 title: Alabama
 layout: maps
 description: 'Historic County Boundaries of Alabama'
-image: assets/images/hydepark.jpg
+image: assets/images/al_flag.png
 nav-menu: false
 show_tile: false
 is_map: true
@@ -59,9 +59,9 @@ is_map: true
 
     <script>
 
-      var background = L.tileLayer('https://server.arcgisonline.com/arcgis/rest/services/USA_Topo_Maps/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-	maxZoom: 16
+      var background = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 16
 }); 
       var map = L.map("map", {
         layers: [background],
@@ -92,10 +92,10 @@ is_map: true
                     if (prevLayerClicked !== null) {
                       prevLayerClicked.setStyle({
                         weight: 1,
-                        opacity: 1,
+                        opacity: 0.6,
                         color: 'black',
                         dashArray: '',
-                        fillOpacity: 1.9,
+                        fillOpacity: 0.6,
                         fillColor: 'white'
                       });
                     }
@@ -105,7 +105,7 @@ is_map: true
                       weight: 1,
                       color: '#fff',
                       dashArray: '',
-                      fillOpacity: 1,
+                      fillOpacity: 0.6,
                       fillColor: 'red'
                     });
                     if (!L.Browser.ie && !L.Browser.opera && L.Browser.edge) {
@@ -125,7 +125,7 @@ is_map: true
               weight: 1,
               color: 'black',
               fillColor: 'white',
-              fillOpacity: 1,
+              fillOpacity: 0.6,
             };
           },
           waitToUpdateMap: true,

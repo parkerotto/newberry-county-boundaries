@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Test
-landing-title: 'Test'
+title: FAQ
+landing-title: 'FAQ'
 nav-menu: false
 description: test123
-image: assets/images/typewriter.jpg
+image: assets/images/newberry.png
 author: testwriter
 show_tile: false
-show_blogpost: false
+show_blogpost: true
 ---
 
 test
