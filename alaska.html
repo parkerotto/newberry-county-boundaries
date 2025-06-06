@@ -15,8 +15,8 @@ is_map: true
     <div id="map"></div>
     <div id="sidebar">
         <h2>Alaska</h2>
-        
-<br>
+        <output id="timeline-date" class="time-text">Loading...</output>
+<br><br>
 <h3>Location Information</h3>
         <div id="location-data" class="location-metadata">
             <p>
@@ -51,6 +51,9 @@ is_map: true
         width: 100%;
         margin: 0px;
         margin-bottom: 0px;
+      }
+      .time-text {
+        font-weight: bold;
       }
     </style>
   </head>
@@ -135,14 +138,19 @@ is_map: true
 
         timelineControl = L.timelineSliderControl({
           formatOutput: function(date) {
-            return new Date(date).toLocaleDateString();
+            let formatted = new Date(date).toLocaleDateString();
+
+            document.getElementById('timeline-date').textContent = formatted;
+
+            return formatted;
           },
           enableKeyboardControls: true,
         });
+        
         timeline.addTo(map);
         timelineControl.addTo(map);
         timelineControl.addTimelines(timeline);
-      }
+      };
     </script>
     <script src="jsons/AK_AtlasHCB_reduced.jsonp"></script>
   </body>
