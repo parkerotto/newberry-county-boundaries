@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Jekyll site
-        uses: jekyll/jekyll-action@v2
+        uses: jekyll/jekyll-action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
