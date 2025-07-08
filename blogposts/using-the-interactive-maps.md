@@ -4,7 +4,7 @@ title: Using the Interactive Maps
 landing-title: 'Using the Interactive Maps'
 nav-menu: false
 description: test123
-image: assets/images/newberry.png
+image: assets/images/usa_dark.jpg
 author: testwriter
 show_tile: false
 show_blogpost: true

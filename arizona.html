@@ -2,7 +2,7 @@
 title:
 layout: maps
 description: 
-image: assets/images/ak_postcard.jpg
+image: assets/images/az_postcard.jpg
 nav-menu: false
 show_tile: false
 is_map: true
@@ -15,13 +15,13 @@ is_map: true
     <div id="map">
     </div>
     <div id="sidebar">
-        <h2>Alaska</h2>
+        <h2>Arizona</h2>
         <output id="timeline-date" class="time-text">Loading...</output>
 <br><br>
 <h3>Location Information</h3>
         <div id="location-data" class="location-metadata">
             <p>
-                Here you will find information on the historical county boundaries of Alaska.  
+                Here you will find information on the historical county boundaries of Arizona.  
                 <br><br>Use the time slider to see how the county boundaries have changed over time.  
                 <br><br><i>Use the arrow keys, play button, or next/previous buttons to navigate.</i>  
                 <br><br>Click on a county to explore the data! 
@@ -31,7 +31,7 @@ is_map: true
 </section>
 
   <head>
-    <title>Atlas of Historical County Boundaries: Alaska</title>
+    <title>Atlas of Historical County Boundaries: Arizona</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
@@ -78,15 +78,15 @@ is_map: true
               <td class="row-divider" colspan="4"></td>
             </tr>
             <tr>
-              <td class="label">Alaska</td>
+              <td class="label">Arizona</td>
               <td class="link">
-                <a href="https://publications.newberry.org/ahcb/downloads/gis/AK_AtlasHCB.zip" title="Alaska GIS Files">42.9 MB</a>
+                <a href="https://publications.newberry.org/ahcb/downloads/gis/AZ_AtlasHCB.zip" title="Arizona GIS Files">2.2 MB</a>
               </td>
               <td class="link">
-                <a href="https://publications.newberry.org/ahcb/downloads/kmz/AK_HistCountiesKMZ.zip" title="Alaska KMZ File">27.6 MB</a>
+                <a href="https://publications.newberry.org/ahcb/downloads/kmz/AZ_HistCountiesKMZ.zip" title="Arizona KMZ File">1.4 MB</a>
               </td>
               <td class="link">
-                <a href="https://publications.newberry.org/ahcb/downloads/pdf/AK_HistCountiesPDF.zip" title="Alaska PDF File">16.8 MB</a>
+                <a href="https://publications.newberry.org/ahcb/downloads/pdf/AZ_HistCountiesPDF.zip" title="Arizona PDF File">3.2 MB</a>
               </td>
             </tr>
           </tbody>
@@ -101,8 +101,8 @@ is_map: true
 }); 
       var map = L.map("map", {
         layers: [background],
-        center: new L.LatLng(63.5888, -154.4931),
-        zoom: 4,
+        center: new L.LatLng(34.2744, -111.6602),
+        zoom: 6,
       });
       var timeline;
       var timelineControl;
@@ -185,7 +185,7 @@ is_map: true
         timelineControl.addTimelines(timeline);
       }
     </script>
-    <script src="https://parkerotto.github.io/newberry-hcb-maps/AK_AtlasHCB_reduced.jsonp"></script>
+    <script src="https://parkerotto.github.io/newberry-hcb-maps/AZ_AtlasHCB.jsonp"></script>
   </body>
 </html>
 

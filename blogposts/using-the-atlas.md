@@ -4,7 +4,7 @@ title: Using the Atlas
 landing-title: 'Using the Atlas'
 nav-menu: false
 description: test123
-image: assets/images/newberry.png
+image: assets/images/newberrydark.jpg
 author: testwriter
 show_tile: false
 show_blogpost: true
