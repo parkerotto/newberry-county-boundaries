@@ -3,6 +3,7 @@ title: Atlas of Historical County Boundaries
 subtitle: by The Newberry Library
 email: dis@newberry.org
 description: Dr. William M. Scholl Center for American History and Culture
+baseurl: "/newberry-county-boundaries"
 url: # the base hostname & protocol for your site
 author:
 street_address: 60 W Walton St
