@@ -2,7 +2,7 @@
 title: The Maps
 layout: allmaps
 description: 'Explore our state maps'
-image: assets/images/usa.png
+image: assets/images/usa_dark.jpg
 nav-menu: true
 show_tile: true
 ---

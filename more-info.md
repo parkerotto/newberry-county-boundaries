@@ -4,7 +4,7 @@ title: Additional Information
 landing-title: 'Blog'
 nav-menu: true
 description: null
-image: assets/images/typewriter.jpg
+image: assets/images/newberry2.jpg
 author: null
 show_tile: true
 ---

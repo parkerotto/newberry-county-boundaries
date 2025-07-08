@@ -26,11 +26,9 @@
 			@include padding(4em, 4em);
 			background-position: center;
 			background-repeat: no-repeat;
-			background-size: cover;
+			background-size: 100%;
 			cursor: default;
-			height: 40vh;
-			max-height: 40em;
-			min-height: 23em;
+			height: 42vh;
 			overflow: hidden;
 			position: relative;
 			width: 40%;
@@ -157,13 +155,21 @@
 		@include padding(4em, 4em);
 		background-position: center;
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: 100%;
 		cursor: default;
 		height: 40vh;
-		max-height: 40em;
-		min-height: 23em;
 		overflow: hidden;
 		position: relative;
 		width: 30% !important;
 		flex: 1 auto;
+
+					h3 {
+				font-size: 0em !important;
+
+				a {
+					&:hover {
+						color: inherit !important;
+					}
+				}
+			}
 	}
