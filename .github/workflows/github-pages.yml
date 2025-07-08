@@ -1,17 +1,33 @@
-name: Deploy to GitHub Pages
+# .github/workflows/deploy.yml
+name: Build and Deploy Jekyll Site
 
 on:
   push:
     branches:
-      - master
+      - master  # or 'main', depending on your default branch
 
 jobs:
-  github-pages:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build Jekyll site
-        uses: jekyll/jekyll-action
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'  # or whatever Ruby version you're using
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Build site with Jekyll
+        run: bundle exec jekyll build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
