@@ -1,8 +1,8 @@
 ---
-title: Alabama
+title: Wtest
 layout: maps
 description: 
-image: assets/images/al_postcard.jpg
+image: assets/images/co_postcard.jpg
 nav-menu: false
 show_tile: false
 is_map: true
@@ -15,13 +15,13 @@ is_map: true
     <div id="map">
     </div>
     <div id="sidebar">
-        <h2>Alabama</h2>
+        <h2>Colorado</h2>
         <output id="timeline-date" class="time-text">Loading...</output>
 <br><br>
 <h3>Location Information</h3>
         <div id="location-data" class="location-metadata">
             <p>
-                Here you will find information on the historical county boundaries of Alabama.  
+                Here you will find information on the historical county boundaries of Colorado.  
                 <br><br>Use the time slider to see how the county boundaries have changed over time.  
                 <br><br><i>Use the arrow keys, play button, or next/previous buttons to navigate.</i>  
                 <br><br>Click on a county to explore the data! 
@@ -31,7 +31,7 @@ is_map: true
 </section>
 
   <head>
-    <title>Atlas of Historical County Boundaries: Alabama</title>
+    <title>Atlas of Historical County Boundaries: Colorado</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
@@ -78,15 +78,15 @@ is_map: true
               <td class="row-divider" colspan="4"></td>
             </tr>
             <tr>
-              <td class="label">Alabama</td>
+              <td class="label">Colorado</td>
               <td class="link">
-                <a href="https://publications.newberry.org/ahcb/downloads/gis/AL_AtlasHCB.zip" title="Alabama GIS Files">8.2 MB</a>
+                <a href="https://publications.newberry.org/ahcb/downloads/gis/CO_AtlasHCB.zip" title="Colorado GIS Files">9.4 MB</a>
               </td>
               <td class="link">
-                <a href="https://publications.newberry.org/ahcb/downloads/kmz/AL_HistCountiesKMZ.zip" title="Alabama KMZ File">4.8 MB</a>
+                <a href="https://publications.newberry.org/ahcb/downloads/kmz/CO_HistCountiesKMZ.zip" title="Colorado KMZ File">6.7 MB</a>
               </td>
               <td class="link">
-                <a href="https://publications.newberry.org/ahcb/downloads/pdf/AL_HistCountiesPDF.zip" title="Alabama PDF File">35.1 MB</a>
+                <a href="https://publications.newberry.org/ahcb/downloads/pdf/CO_HistCountiesPDF.zip" title="Colorado PDF File">27.5 MB</a>
               </td>
             </tr>
           </tbody>
@@ -101,8 +101,8 @@ is_map: true
 }); 
       var map = L.map("map", {
         layers: [background],
-        center: new L.LatLng(32.806671, -86.791130),
-        zoom: 7,
+        center: new L.LatLng(38.9979, -105.5506),
+        zoom: 5,
       });
       var timeline;
       var timelineControl;
@@ -185,7 +185,7 @@ is_map: true
         timelineControl.addTimelines(timeline);
       }
     </script>
-    <script src="https://parkerotto.github.io/newberry-hcb-maps/AL_AtlasHCB.jsonp"></script>
+    <script src="https://parkerotto.github.io/newberry-hcb-maps/CO_AtlasHCB.jsonp"></script>
   </body>
 </html>
 
