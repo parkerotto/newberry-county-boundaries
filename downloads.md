@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Download Files
-image: assets/images/books.jpg
+image: assets/images/downloads.jpg
 nav-menu: true
 ---
 

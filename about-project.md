@@ -2,7 +2,7 @@
 layout: post
 title: About the Project
 description: 
-image: assets/images/newberrydark.jpg
+image: assets/images/aboutus.jpg
 nav-menu: true
 ---
 

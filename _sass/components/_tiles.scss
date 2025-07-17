@@ -40,6 +40,9 @@
 			header {
 				position: relative;
 				z-index: 3;
+				background-color: rgba(128, 128, 128, 0.7); 
+				padding: 1rem; 
+				border-radius: 0.5rem;
 			}
 
 			h3 {
@@ -157,10 +160,10 @@
 		background-repeat: no-repeat;
 		background-size: 100%;
 		cursor: default;
-		height: 40vh;
+		height: 25vh !important;
 		overflow: hidden;
 		position: relative;
-		width: 30% !important;
+		width: 20% !important;
 		flex: 1 auto;
 
 					h3 {
