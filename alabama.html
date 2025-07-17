@@ -188,7 +188,7 @@ is_map: true
         timelineControl = L.timelineSliderControl({
           formatOutput: function(date) {
             let dateObj = new Date(date);
-            let month = dateObj.getMonth() + 1;  // 0-indexed, so add 1
+            let month = dateObj.getMonth() + 1;
             let day = dateObj.getDate();
             let year = dateObj.getFullYear();
 
@@ -196,7 +196,7 @@ is_map: true
             document.getElementById('day').textContent = day;
             document.getElementById('year').textContent = year;
 
-            return `${month}/${day}/${year}`; // optional: display on timeline
+            return `${month}/${day}/${year}`;
           },
           enableKeyboardControls: true,
         });

@@ -16,8 +16,23 @@ is_map: true
     </div>
     <div id="sidebar">
         <h2>Alaska</h2>
-        <output id="timeline-date" class="time-text">Loading...</output>
-<br><br>
+        <table id="timeline-date" class="time-text" style="border-collapse: collapse; margin-bottom: 1em;">
+          <thead>
+            <tr>
+              <th style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">Month</th>
+              <th style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">Day</th>
+              <th style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="month" style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">--</td>
+              <td id="day" style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">--</td>
+              <td id="year" style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">--</td>
+            </tr>
+          </tbody>
+        </table>
+<br>
 <h3>Location Information</h3>
         <div id="location-data" class="location-metadata">
             <p>
@@ -171,11 +186,16 @@ is_map: true
 
         timelineControl = L.timelineSliderControl({
           formatOutput: function(date) {
-            let formatted = new Date(date).toLocaleDateString();
+            let dateObj = new Date(date);
+            let month = dateObj.getMonth() + 1;
+            let day = dateObj.getDate();
+            let year = dateObj.getFullYear();
 
-            document.getElementById('timeline-date').textContent = formatted;
+            document.getElementById('month').textContent = month;
+            document.getElementById('day').textContent = day;
+            document.getElementById('year').textContent = year;
 
-            return formatted;
+            return `${month}/${day}/${year}`;
           },
           enableKeyboardControls: true,
         });
