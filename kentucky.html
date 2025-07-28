@@ -1,0 +1,211 @@
+---
+title: Kentucky
+layout: maps
+description: 
+image: assets/images/ky_postcard.jpg
+nav-menu: false
+show_tile: false
+is_map: true
+---
+
+<!DOCTYPE html>
+<html>
+    <section id="one" class="section-map">
+    
+    <div id="map">
+    </div>
+    <div id="sidebar">
+        <h2>Kentucky</h2>
+        <table id="timeline-date" class="time-text" style="border-collapse: collapse; margin-bottom: 1em;">
+          <thead>
+            <tr>
+              <th style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">Month</th>
+              <th style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">Day</th>
+              <th style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="month" style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">--</td>
+              <td id="day" style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">--</td>
+              <td id="year" style="padding: 0.5em; border: 1px solid #ccc; text-align: center;">--</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+<h3>Location Information</h3>
+        <div id="location-data" class="location-metadata">
+            <p>
+                Here you will find information on the historical county boundaries of Kentucky.  
+                <br><br>Use the time slider to see how the county boundaries have changed over time.  
+                <br><br><i>Use the arrow keys, play button, or next/previous buttons to navigate.</i>  
+                <br><br>Click on a county to explore the data! 
+            </p>
+        </div>
+    </div>	
+</section>
+
+  <head>
+    <title>Atlas of Historical County Boundaries: Kentucky</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<script src="https://skeate.dev/Leaflet.timeline/examples/leaflet.timeline.js"></script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #info {
+        width: 100vh;
+        height: 90vh;
+        padding: 100px;
+      }
+      .leaflet-bottom.leaflet-left {
+        width: 100%;
+      }
+      .leaflet-control-container .leaflet-timeline-controls {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 0px;
+      }
+      .time-text {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id=info>
+      <p>
+        <h1>Download Data</h1>
+        <table style="text-align: center; vertical-align: middle;">
+          <thead>
+            <th style="text-align: center;">State Name</th>
+            <th style="text-align: center;" class="link">GIS Files</th>
+            <th style="text-align: center;" class="link">KMZ Files</th>
+            <th style="text-align: center;" class="link">PDF Files</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-divider" colspan="4"></td>
+            </tr>
+            <tr>
+              <td class="label">Kentucky</td>
+              <td class="link">
+                <a href="https://publications.newberry.org/ahcb/downloads/gis/KY_AtlasHCB.zip" title="Kentucky GIS Files">9.4 MB</a>
+              </td>
+              <td class="link">
+                <a href="https://publications.newberry.org/ahcb/downloads/kmz/KY_HistCountiesKMZ.zip" title="Kentucky KMZ File">6.7 MB</a>
+              </td>
+              <td class="link">
+                <a href="https://publications.newberry.org/ahcb/downloads/pdf/KY_HistCountiesPDF.zip" title="Kentucky PDF File">27.5 MB</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </p>
+    </div>
+    <script>
+
+      var background = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 16
+}); 
+      var map = L.map("map", {
+        layers: [background],
+        center: new L.LatLng(37.5333, -85.3000),
+        zoom: 6,
+      });
+      var timeline;
+      var timelineControl;
+      var prevLayerClicked = null;
+      var onEachFeature = function (feature, layer) {
+                if (feature.properties) {
+                    var prop = feature.properties;
+                    var popup =
+                        '<h4>County Information</h4>' +
+                        '<b>County/Region: </b><br>' + prop['NAME'] + ', ' + prop['STATE'] + '<br>' +
+                        '<br><b>Effective Dates: </b><br>' + prop['START_DATE'] + ' to ' + prop['END_DATE'] + '<br>' +
+                        '<br><b>Description of Border Change: </b><br>' + prop['CHANGE'];
+//Specific place for On Click functionality
+
+                    feature.layer = layer;
+                    
+                layer.on('click', function (){
+                  document.getElementById('location-data').innerHTML = `${popup}`
+                });
+
+                layer.on({
+                  click: function(e){
+                    if (prevLayerClicked !== null) {
+                      prevLayerClicked.setStyle({
+                        weight: 1,
+                        opacity: 0.6,
+                        color: 'black',
+                        dashArray: '',
+                        fillOpacity: 0.6,
+                        fillColor: 'white'
+                      });
+                    }
+                    //map.fitBounds(e.target.getBounds());
+                    var layer = e.target;
+                    layer.setStyle({
+                      weight: 1,
+                      color: '#fff',
+                      dashArray: '',
+                      fillOpacity: 0.6,
+                      fillColor: 'red'
+                    });
+                    if (!L.Browser.ie && !L.Browser.opera && L.Browser.edge) {
+                      layer.bringToFront();
+                    }
+                    prevLayerClicked = layer;
+                  }
+                });
+    }};
+
+      function onLoadData(data) {
+        timeline = L.timeline(data, {
+        
+          style: function (data) {
+            return {
+              stroke: true,
+              weight: 1,
+              color: 'black',
+              fillColor: 'white',
+              fillOpacity: 0.6,
+            };
+          },
+          waitToUpdateMap: true,
+          showTicks: true,
+          onEachFeature: onEachFeature
+        });
+
+        timelineControl = L.timelineSliderControl({
+          formatOutput: function(date) {
+            let dateObj = new Date(date);
+            let month = dateObj.getMonth() + 1;
+            let day = dateObj.getDate();
+            let year = dateObj.getFullYear();
+
+            document.getElementById('month').textContent = month;
+            document.getElementById('day').textContent = day;
+            document.getElementById('year').textContent = year;
+
+            return `${month}/${day}/${year}`;
+          },
+          enableKeyboardControls: true,
+        });
+        
+        timeline.addTo(map);
+        timelineControl.addTo(map);
+        timelineControl.addTimelines(timeline);
+      }
+    </script>
+    <script src="https://parkerotto.github.io/newberry-hcb-maps/KY_AtlasHCB.jsonp"></script>
+  </body>
+</html>
+

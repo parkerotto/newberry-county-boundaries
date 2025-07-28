@@ -162,9 +162,9 @@
 		cursor: default;
 		height: 25vh !important;
 		overflow: hidden;
-		position: relative;
+		position: relative !important;
 		width: 20% !important;
-		flex: 1 auto;
+		flex: none !important;
 
 					h3 {
 				font-size: 0em !important;
@@ -175,5 +175,12 @@
 						color: inherit !important;
 					}
 				}
+			}
+			header {
+				position: relative;
+				z-index: 3;
+				background-color: rgba(128, 128, 128, 0) !important; 
+				padding: 1rem; 
+				border-radius: 0.5rem;
 			}
 	}
