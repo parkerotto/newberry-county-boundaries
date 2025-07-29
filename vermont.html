@@ -1,8 +1,8 @@
 ---
-title: The Dakota Territory
+title: Vermont
 layout: maps
 description: 
-image: assets/images/dt_postcard.png
+image: assets/images/vt_postcard.jpg
 nav-menu: false
 show_tile: false
 is_map: true
@@ -15,7 +15,7 @@ is_map: true
     <div id="map">
     </div>
     <div id="sidebar">
-        <h2>The Dakota Territory</h2>
+        <h2>Vermont</h2>
         <table id="timeline-date" class="time-text" style="border-collapse: collapse; margin-bottom: 1em;">
           <thead>
             <tr>
@@ -36,7 +36,7 @@ is_map: true
 <h3>Location Information</h3>
         <div id="location-data" class="location-metadata">
             <p>
-                Here you will find information on the historical county boundaries of The Dakota Territory.  
+                Here you will find information on the historical county boundaries of Vermont.  
                 <br><br>Use the time slider to see how the county boundaries have changed over time.  
                 <br><br><i>Use the arrow keys, play button, or next/previous buttons to navigate.</i>  
                 <br><br>Click on a county to explore the data! 
@@ -46,7 +46,7 @@ is_map: true
 </section>
 
   <head>
-    <title>Atlas of Historical County Boundaries: The Dakota Territory</title>
+    <title>Atlas of Historical County Boundaries: Vermont</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
@@ -93,15 +93,15 @@ is_map: true
               <td class="row-divider" colspan="4"></td>
             </tr>
             <tr>
-              <td class="label">The Dakota Territory</td>
+              <td class="label">Vermont</td>
               <td class="link">
-                <a href="https://publications.newberry.org/ahcb/downloads/gis/DT_AtlasHCB.zip" title="The Dakota Territory GIS Files">9.4 MB</a>
+                <a href="https://publications.newberry.org/ahcb/downloads/gis/VT_AtlasHCB.zip" title="Vermont GIS Files">10.0 MB</a>
               </td>
               <td class="link">
-                <a href="https://publications.newberry.org/ahcb/downloads/kmz/DT_HistCountiesKMZ.zip" title="The Dakota Territory KMZ File">6.7 MB</a>
+                <a href="https://publications.newberry.org/ahcb/downloads/kmz/VT_HistCountiesKMZ.zip" title="Vermont KMZ File">6.1 MB</a>
               </td>
               <td class="link">
-                <a href="https://publications.newberry.org/ahcb/downloads/pdf/DT_HistCountiesPDF.zip" title="The Dakota Territory PDF File">27.5 MB</a>
+                <a href="https://publications.newberry.org/ahcb/downloads/pdf/VT_HistCountiesPDF.zip" title="Vermont PDF File">37.0 MB</a>
               </td>
             </tr>
           </tbody>
@@ -116,8 +116,8 @@ is_map: true
 }); 
       var map = L.map("map", {
         layers: [background],
-        center: new L.LatLng(44.5, -100.0),
-        zoom: 5,
+        center: new L.LatLng(44.5588, -72.5778),
+        zoom: 7,
       });
       var timeline;
       var timelineControl;
@@ -205,7 +205,7 @@ is_map: true
         timelineControl.addTimelines(timeline);
       }
     </script>
-    <script src="https://parkerotto.github.io/newberry-hcb-maps/DT_AtlasHCB.jsonp"></script>
+    <script src="https://parkerotto.github.io/newberry-hcb-maps/VT_AtlasHCB.jsonp"></script>
   </body>
 </html>
 
